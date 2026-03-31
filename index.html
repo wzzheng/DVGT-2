@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="DVGT-2 is a streaming Vision-Geometry-Action foundation model that jointly predicts dense 3D geometry and future trajectories from unposed images for real-time autonomous driving.">
+  <meta name="keywords" content="DVGT-2, Autonomous Driving, 3D Reconstruction, Planning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DVGT-2: Vision-Geometry-Action Model for Autonomous Driving</title>
+
+
+  <meta property="og:title" content="DVGT-2: Vision-Geometry-Action Model for Autonomous Driving" />
+  <meta property="og:description"
+    content="DVGT-2 is a streaming Vision-Geometry-Action foundation model that jointly predicts dense 3D geometry and future trajectories from unposed images for real-time autonomous driving." />
+  <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+      if you update and want to force Twitter to re-scrape. -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:title" content="DVGT-2: Vision-Geometry-Action Model for Autonomous Driving" />
+  <meta property="twitter:description"
+    content="DVGT-2 is a streaming Vision-Geometry-Action foundation model that jointly predicts dense 3D geometry and future trajectories from unposed images for real-time autonomous driving." />
+  <!-- <meta property="twitter:image"         content="https://3dmagicpony.github.io/resources/overview.jpg" /> -->
+
+  <!-- MathJax library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSQGH8Q0WV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TSQGH8Q0WV');
+  </script> -->
+  <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script> -->
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="font-size: 2rem;">DVGT-2: Vision-Geometry-Action Model for Autonomous Driving</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://zuosc19.github.io/">Sicheng Zuo</a><sup>1, *</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Zixun Xie</a><sup>1, 2, 4, *</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://wzzheng.net/">Wenzhao Zheng</a><sup>1, *</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Shaoqing Xu</a><sup>2</sup>
+              </span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#">Fang Li</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Hanbing Li</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Long Chen</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.fst.um.edu.mo/people/zxyang/">Zhi-Xin Yang</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Tsinghua University</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>Xiaomi EV</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>3</sup>University of Macau</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>4</sup>Peking University</span>
+            </div>
+
+            <div class="is-size-6 publication-authors" style="margin-top: 10px;">
+              <span class="author-block"><sup>*</sup>Equal Contributions</span>&nbsp;&nbsp;
+              <!-- <span class="author-block"><sup>&ddagger;</sup>Research Advisor</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>&dagger;</sup>Project Leader</span>&nbsp;&nbsp; -->
+              <!-- <span class="author-block"><sup>✉</sup>Corresponding Author</span> -->
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2603.xxxxx" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/wzzheng/DVGT"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Hugging Face Link -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/RainyNight/DVGT-2"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
+                          alt="Hugging Face" 
+                          style="width: 1.2em; vertical-align: middle;" />
+                    </span>
+                    <span>Hugging Face</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .video-border {
+      display: inline-block;
+      padding: 2px; /* adjust thickness of your 'border' */
+      border-radius: 4px;
+      background: linear-gradient(45deg, #2193b0, #6dd5ed); /* try different gradient colors */
+    }
+    .video-border video {
+      display: block;
+      border: none;
+      border-radius: 4px; /* match the wrapper for a consistent look */
+    }
+  </style>
+
+  <style>
+    #teaser-video {
+      max-width: 85%;
+      margin: 0 auto;
+      display: block;
+      border: none; /* remove the solid border */
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    #architecture-img {
+      width: 90%;
+      margin: 0 auto;
+      display: block;
+      border: none;
+      border-radius: 0; /* removed border radius */
+      box-shadow: none; /* removed box shadow */
+    }
+    
+    /* Enhanced style to further reduce space between buttons and teaser video */
+    .hero.teaser {
+      padding-top: 0;
+      margin-top: -3rem; /* Added negative margin to pull the teaser section up */
+    }
+    .hero.teaser .hero-body {
+      padding-top: 0; /* Reduced from 1rem to 0 */
+    }
+  </style>
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser-video" autoplay muted loop playsinline height="100%">
+          <source src="./resources/demo_video.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section> -->
+
+
+  <section class="section" style="padding-top: 1rem;">
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered">
+        <div class="column is-full-width has-text-centered">
+
+          <h2 class="title is-4" style="font-weight: 700;">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              We propose <b>DVGT-2</b>, a streaming Vision-Geometry-Action (VGA) model for efficient, real-time autonomous driving. 
+              Given unposed multi-view image sequences, <b>DVGT-2</b> jointly predicts dense 3D scene geometry and future trajectories in a fully online manner. 
+              By employing temporal causal attention and a sliding-window feature cache, our model enables on-the-fly inference with a constant O(1) computational cost, seamlessly supporting infinite-length, continuous driving.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img id="teaser-img" src="./resources/teaser.png" alt="Teaser" style="max-width: 90%; height: auto;">
+          </div>
+          <br>
+
+
+          <h2 class="title is-4" style="font-weight: 700;">Method</h2>
+          <div class="content has-text-justified">
+            <p>
+              <b>DVGT-2</b> consists of three core components: an image encoder, a geometry transformer, and multi-task prediction heads. 
+              The model is trained to jointly perform dense geometry reconstruction and trajectory planning across full video sequences. 
+              By applying temporal causal attention, we ensure the model attends only to past frames while planning for the future at any given time step. 
+              This auto-regressive design naturally aligns the training process with streaming inference and significantly boosts training efficiency.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img id="architecture-img" src="./resources/framework.png" alt="Architecture">
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              During online inference, we maintain a sliding-window feature cache to store historical intermediate representations within a certain interval. 
+              This mechanism allows <b>DVGT-2</b> to efficiently reuse previously computed features and completely avoid redundant computations. 
+              As a result, the model achieves a constant O(1) computational complexity, enabling consistent geometry reconstruction and robust trajectory planning across infinite-length driving scenarios.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img id="architecture-img" src="./resources/infer.png" alt="Architecture">
+          </div>
+          <br>
+
+          <h2 class="title is-4" style="font-weight: 700;">Experiments</h2>
+          <div class="content has-text-justified">
+            <p>
+              <b>DVGT-2</b> achieves SOTA performance in both 3D geometry reconstruction and trajectory planning across diverse datasets. 
+              Relying solely on annotation-efficient geometry supervision, it operates entirely without sparse perception labels or language annotations. 
+              By leveraging an efficient sliding-window streaming strategy, <b>DVGT-2</b> enables real-time, infinite-length online inference with a constant memory cost and a mere 266ms per-frame latency, paving the way for next-generation autonomous driving.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img id="comparison-img" src="./resources/comparison.png" alt="Comparison">
+          </div>
+          <!-- <div class="content has-text-centered">
+            <img id="exp_closed_loop" src="./resources/exp_closed_loop.png" alt="Experiments_1">
+          </div>
+          <div class="content has-text-centered">
+            <img id="exp_open_loop" src="./resources/exp_open_loop.png" alt="Experiments_2>
+          </div> -->
+          <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
+            <div class="content has-text-centered" style="flex: 1;">
+              <img id="experiments-1-img" src="./resources/exp_closed_loop.png" alt="Experiments_1" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="content has-text-centered" style="flex: 1;">
+              <img id="experiments-2-img" src="./resources/exp_open_loop.png" alt="Experiments_2" style="max-width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-4" style="font-weight: 700;">BibTeX</h2>
+      <pre><code>@inproceedings{zuo2026dvgt-2,
+  title={DVGT-2: Vision-Geometry-Action Model for Autonomous Driving},
+  author={Zuo, Sicheng and Xie, Zixun and Zheng, Wenzhao and Xu, Shaoqing and Li, Fang and Li, Hanbing and Chen, Long and Yang, Zhi-Xin and Lu, Jiwen},
+  booktitle={arXiv preprint arXiv:2603.xxxxx},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
