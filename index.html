@@ -111,7 +111,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2603.xxxxx" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2604.xxxxx" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -192,15 +192,56 @@
       padding-top: 0; /* Reduced from 1rem to 0 */
     }
   </style>
-  <!-- <section class="hero teaser">
+  <!-- Demo Videos Section -->
+  <section class="hero teaser">
     <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video id="teaser-video" autoplay muted loop playsinline height="100%">
-          <source src="./resources/demo_video.mp4" type="video/mp4">
-        </video>
+      <div class="hero-body" style="padding-bottom: 0;">
+
+        <!-- Demo 1: Scene Representation -->
+        <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+          <div class="column is-full-width">
+            <video autoplay muted loop playsinline style="width: 100%; max-width: 85%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+              <source src="./resources/demo-1.mp4" type="video/mp4">
+            </video>
+            <div class="content has-text-justified" style="max-width: 85%; margin: 1.2rem auto 0 auto;">
+              <p>
+                Unlike existing driving models that rely on inverse perspective mapping or sparse perception results as driving interfaces, <b>DVGT-2</b> reconstructs dense 3D geometry to provide a comprehensive and detailed scene representation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 2: Streaming Reconstruction & Planning -->
+        <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+          <div class="column is-full-width">
+            <video autoplay muted loop playsinline style="width: 100%; max-width: 85%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+              <source src="./resources/demo-2.mp4" type="video/mp4">
+            </video>
+            <div class="content has-text-justified" style="max-width: 85%; margin: 1.2rem auto 0 auto;">
+              <p>
+                Given unposed multi-view image sequences, <b>DVGT-2</b> performs joint geometry reconstruction and trajectory planning in a fully online manner, enabling efficient and robust inference across infinite-length driving scenarios.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 3: Global Geometry -->
+        <div class="columns is-centered has-text-centered" style="margin-bottom: 1rem;">
+          <div class="column is-full-width">
+            <video autoplay muted loop playsinline style="width: 100%; max-width: 85%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+              <source src="./resources/demo-3.mp4" type="video/mp4">
+            </video>
+            <div class="content has-text-justified" style="max-width: 85%; margin: 1.2rem auto 0 auto;">
+              <p>
+                Operating on online input sequences, <b>DVGT-2</b> streamingly infers the global geometry of the entire scene, demonstrating high fidelity and temporal consistency.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section> -->
+  </section>
 
 
   <section class="section" style="padding-top: 1rem;">
@@ -283,7 +324,7 @@
       <pre><code>@inproceedings{zuo2026dvgt-2,
   title={DVGT-2: Vision-Geometry-Action Model for Autonomous Driving at Scale},
   author={Zuo, Sicheng and Xie, Zixun and Zheng, Wenzhao and Xu, Shaoqing and Li, Fang and Li, Hanbing and Chen, Long and Yang, Zhi-Xin and Lu, Jiwen},
-  booktitle={arXiv preprint arXiv:2603.xxxxx},
+  booktitle={arXiv preprint arXiv:2604.xxxxx},
   year={2026}
 }</code></pre>
     </div>
